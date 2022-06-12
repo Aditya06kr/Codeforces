@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,flag=1;;
+		cin>>n;
+		string s;
+		cin>>s;
+		int arr[26]={0};
+		for(int i=1;i<n;i++){
+			if(arr[s[i]-'A']==-1){
+				flag=0;
+				break;
+			}
+			if(s[i]!=s[i-1]){
+                arr[s[i-1]-'A']=-1;
+			}
+		}
+		if(flag==0){
+			cout<<"NO\n";
+		}
+		else{
+			cout<<"YES\n";
+		}
+	}
+	return 0;
+}
