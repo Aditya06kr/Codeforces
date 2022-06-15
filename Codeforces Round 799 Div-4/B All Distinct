@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		unordered_set<int> s;
+		for(int i=0;i<n;i++){
+			int x;
+			cin>>x;
+			s.insert(x);
+		}
+		int ans;
+		if((n-s.size())%2==0){
+            ans=s.size();
+		}
+		else{
+			ans=s.size()-1;
+		}
+		cout<<ans<<"\n";
+	}
+    return 0;
+}
