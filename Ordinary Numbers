@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+        int n1=n;
+        if(n<10){
+            cout<<n<<"\n";
+            continue;
+        }
+        int cnt=0;
+        while(n1){
+            cnt++;
+            n1/=10;
+        }
+        int first=0;
+        while(cnt--){
+        	first=(first*10)+1;
+        }
+        int sum=0;
+        if(first<=n){
+        	sum+=(n/first);
+        }
+        first/=10;
+        while(first){
+        	sum+=9;
+        	first/=10;
+        }
+        cout<<sum<<"\n";
+	}
+}
