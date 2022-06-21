@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	// vector<vector<int>> v;
+
+	int t;
+	cin>>t;
+	while(t--){
+		int n,ans=0;
+		cin>>n;
+        for(int i=1;i<n%10;i++){
+        	ans+=10;
+        }
+        string s=to_string(n);
+        if(s.size()==1){
+        	ans++;
+        }
+        else if(s.size()==2){
+        	ans+=3;
+        }
+        else if(s.size()==3){
+        	ans+=6;
+        }
+        else{
+        	ans+=10;
+        }
+        
+        cout<<ans<<"\n";
+	}
+	return 0;
+}
