@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int a,b,c,ans,flag=1;
+		cin>>a>>b>>c;
+		int diff=abs(a-b);
+		int n=diff*2;
+		if(a>n || b>n || c>n){
+			flag=0;
+		}
+		else{
+			if(c+diff>n){
+				ans=c-diff;
+			}
+			else{
+				ans=c+diff;
+			}
+
+		}
+		if(flag){
+			cout<<ans<<"\n";
+		}
+		else{
+			cout<<-1<<"\n";
+		}
+	}
+	return 0;
+}
