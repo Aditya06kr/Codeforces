@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,a,b;
+		cin>>n>>a>>b;
+		string s1;
+		int i=0,x=b;
+		while(x--){
+            s1.push_back('a'+i);
+            i++;
+		}
+		string main;
+		int cnt=n/b;
+		while(cnt--){
+			main+=s1;
+		}
+		int ex=n%b;
+		int j=0;
+		while(ex--){
+			main.push_back(s1[j]);
+			j++;
+		}
+		cout<<main<<"\n";
+	}
+	return 0;
+}
