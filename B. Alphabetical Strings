@@ -1,0 +1,110 @@
+// Code - 1
+
+#include<bits/stdc++.h>
+using namespace std;
+
+void fun(string s){
+    deque<char> dq;
+    char maxi='a';
+    for(int i=0;i<s.size();i++){
+    	maxi=max(maxi,s[i]);
+    	dq.push_back(s[i]);
+    }
+
+    for(char ch=maxi;ch>='a';ch--){
+    	if(dq.size()==0){
+    		cout<<"NO\n";
+    		return;
+    	}
+    	if(dq.front()==ch){
+    		dq.pop_front();
+    	}
+    	else if(dq.back()==ch){
+    		dq.pop_back();
+    	}
+    	else{
+    		cout<<"NO\n";
+    		return;
+    	}
+    }
+
+    if(dq.size()==0){
+    	cout<<"YES\n";
+    }
+    else{
+    	cout<<"NO\n";
+    }
+}
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+        string s;
+        cin>>s;
+        fun(s);
+	}
+	return 0;
+
+}
+
+// Code - 2
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		string s;
+		cin>>s;
+		int i,j;
+		int arr[26]={0};
+		bool flag=1;
+		for(int k=0;k<s.size();k++){
+			if(s[k]=='a'){
+                i=j=k;
+			}
+			arr[s[k]-'a']++;
+		}
+		for(int k=0;k<26;k++){
+			if(arr[k]>1){
+				cout<<"NO\n";
+				flag=0;
+				break;
+			}
+		}
+		if(flag!=0 && (arr[0]==0 || (arr[0]==s.size() && arr[0]!=1))){
+			cout<<"NO\n";
+			flag=0;
+		}
+		else{
+			if(flag==0){
+				continue;
+			}
+			while(i!=0 || j!=s.size()-1){
+				if((i!=0) && (s[i-1]-s[i]==1 || s[i-1]-s[j]==1)){
+					i--;
+				}
+				else if((j!=s.size()-1) && (s[j+1]-s[j]==1 || s[j+1]-s[i]==1)){
+                    j++;
+				}
+				else{
+					cout<<"NO\n";
+					flag=0;
+					break;
+				}
+			}
+		}
+		if(flag){
+			cout<<"YES\n";
+		}
+		else{
+			continue;
+		}
+
+	}
+	return 0;
+
+}
